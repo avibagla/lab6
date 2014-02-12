@@ -12,6 +12,7 @@ function initializePage() {
 	$('.project a').click(addProjectDetails);
 
 	$('#colorBtn').click(randomizeColors);
+	$('#changePic').click(changeImage);
 }
 
 /*
@@ -50,6 +51,21 @@ function colorCallback(result){
 	changeColors(colors);
 	console.log(result);
 }
+
+function changeImage (e) {
+	console.log("User clicked on changeImage");
+	$.get("http://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=20&minx=-180&miny=-90&maxx=180&maxy=90&size=medium&mapfilter=true", imageReceived, 'jsonp');
+	// body...
+}
+
+function imageReceived(result){
+	var image = result.photos[Math.floor(Math.random() * 20)].photo_file_url;
+	$('.jumbotron').css("background-image", "url('" + image + "')");
+	$('.jumbotron').css("background-size", "100%");	
+	$('.jumbotron').css("background-repeat", "no-repeat");
+
+}
+
 function changeColors (colors) {
 	$('body').css('background-color', colors[0]);
 	$('.thumbnail').css('background-color', colors[1]);
