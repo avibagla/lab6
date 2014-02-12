@@ -54,7 +54,7 @@ function colorCallback(result){
 
 function changeImage (e) {
 	console.log("User clicked on changeImage");
-	$.get("http://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=20&minx=-180&miny=-90&maxx=180&maxy=90&size=medium&mapfilter=true", imageReceived, 'jsonp');
+	$.get("https://www.panoramio.com/map/get_panoramas.php?set=public&from=0&to=20&minx=-180&miny=-90&maxx=180&maxy=90&size=medium&mapfilter=true", imageReceived, 'jsonp');
 	// body...
 }
 
